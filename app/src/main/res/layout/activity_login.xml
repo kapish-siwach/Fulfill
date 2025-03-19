@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="130dp"-->
+<!--        android:background="@drawable/top_shape"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <View-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="130dp"-->
+<!--        android:background="@drawable/bottom_shape"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/pristineImg"
+                android:layout_gravity="center"
+                android:contentDescription="@string/logo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/emailLayout"
+                android:hint="@string/email_input"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidth="0dp"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeWidthFocused="0dp"
+                android:layout_marginHorizontal="20dp"
+                android:hint="@string/password"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/design_default_color_secondary_variant"
+                app:boxStrokeWidth="0dp"
+                app:passwordToggleTint="@color/design_default_color_secondary_variant"
+                android:id="@+id/passwordLayout"
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                >-->
+
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/forgotPassword"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="30dp"-->
+            <!--                    android:layout_weight="3"-->
+            <!--                    android:clickable="true"-->
+            <!--                    android:focusable="true"-->
+            <!--                    android:text="@string/forgot_password"-->
+            <!--                    android:textColor="#0B2697"-->
+            <!--                    android:textSize="14sp" />-->
+
+            <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="@string/remember_me"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:id="@+id/rememberMe" />-->
+
+            <!--            </LinearLayout>-->
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progrssBarLogin"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:indeterminateTint="#534BE3"
+                android:visibility="gone"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/error"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:padding="20dp"
+                android:id="@+id/errorText"
+                />
+
+            <Button
+                android:id="@+id/signInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#534BE3"
+                android:text="@string/sign_in" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
