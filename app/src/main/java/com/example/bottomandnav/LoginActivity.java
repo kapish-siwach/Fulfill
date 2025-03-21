@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressIndicator;
     Button signInBtn;
     TextView errorText;
+    private SessionManagement sessionManagement;
     private List<ResponseModel> responseData = new ArrayList<>();
 
     @Override
@@ -40,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initViews();
-        SharedPreferences sp = getSharedPreferences("Response", MODE_PRIVATE);
-        if (sp.getBoolean("isLoggedIn", false)) {
+//        SharedPreferences sp = getSharedPreferences("Response", MODE_PRIVATE);
+        if (sessionManagement.isLoggedIn()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             jsonBody.addProperty("email", emailInput.getText().toString().trim());
             jsonBody.addProperty("password", passwordInput.getText().toString().trim());
 
-
+            Log.d("ResponseError", "loginUser: "+jsonBody);
             RetrofitInstance.getApiInterface().loginUser(jsonBody).enqueue(new Callback<List<ResponseModel>>() {
                 @Override
                 public void onResponse(Call<List<ResponseModel>> call, Response<List<ResponseModel>> response) {
@@ -67,7 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                         List<ResponseModel> responseModel = response.body();
                         if (responseModel.size() > 0 && responseModel.get(0).condition) {
                             responseData = responseModel;
-                            storeData();
+//                            storeData();
+                            sessionManagement.storeLoginDetails(responseData);
                             startActivity(new Intent(LoginActivity.this,MainActivity.class));
                             finish();
                             clearFields();
@@ -84,12 +86,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<ResponseModel>> call, Throwable t) {
+                    Log.d("ResponseError", "onFailure: "+t.getMessage());
                     Toast.makeText(LoginActivity.this, "onFailure: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     progressIndicator.setVisibility(View.GONE);
                 }
             });
         } catch (Exception e) {
-            Log.d("Post Api Error", "Exception: " + e.getMessage());
+            Log.d("ResponseError", "Exception: " + e.getMessage());
         }
     }
 
@@ -100,21 +103,23 @@ public class LoginActivity extends AppCompatActivity {
         progressIndicator.setVisibility(View.GONE);
         finish();
     }
-    private void storeData() {
-        SharedPreferences sp=getSharedPreferences("Response",MODE_PRIVATE);
-        SharedPreferences.Editor edt=sp.edit();
-        edt.putString("email",responseData.get(0).email);
-        edt.putString("role_name",responseData.get(0).role_name);
-        edt.putString("company_i",responseData.get(0).company_id);
-        edt.putString("menu",new Gson().toJson(responseData.get(0).menu));
-        edt.putString("name",responseData.get(0).name);
-        edt.putBoolean("isLoggedIn",true);
-        edt.putString("profile",responseData.get(0).profile);
-        edt.apply();
-
-    }
+//    private void storeData() {
+//        SharedPreferences sp=getSharedPreferences("Response",MODE_PRIVATE);
+//        SharedPreferences.Editor edt=sp.edit();
+//        edt.putString("email",responseData.get(0).email);
+//        edt.putString("role_name",responseData.get(0).role_name);
+//        edt.putString("mobile",responseData.get(0).phoneNo);
+//        edt.putString("name",responseData.get(0).name);
+//        edt.putString("company_id",responseData.get(0).company_id);
+//        edt.putString("menu",new Gson().toJson(responseData.get(0).menu));
+//        edt.putBoolean("isLoggedIn",true);
+//        edt.putString("profile",responseData.get(0).profile);
+//        edt.apply();
+//
+//    }
 
     private void initViews() {
+        sessionManagement=new SessionManagement(this);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         emailLayout = findViewById(R.id.emailLayout);

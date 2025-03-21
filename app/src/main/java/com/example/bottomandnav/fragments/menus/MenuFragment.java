@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ShareActionProvider;
@@ -125,7 +126,7 @@ public class MenuFragment extends BottomSheetDialogFragment {
 
         try {
             JsonObject jsonBody = new JsonObject();
-            jsonBody.addProperty("email", sp.getString("email",null));
+            jsonBody.addProperty("email", "ritik.jaiswal@pristinebs.co.in");
             jsonBody.addProperty("password", "12345");
 
             RetrofitInstance.getApiInterface().loginUser(jsonBody).enqueue(new Callback<List<ResponseModel>>() {

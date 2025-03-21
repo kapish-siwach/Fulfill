@@ -19,10 +19,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.bottomandnav.LoginActivity;
 import com.example.bottomandnav.R;
+import com.example.bottomandnav.SessionManagement;
 
 public class ProfileFragment extends Fragment {
-    TextView name;
-    ImageView signOut;
+    TextView name,userEmail,mobile,designation,department,companyId,nameF,mobileF,designationF,departmentF,companyIdF;
+    ImageView signOut,userImg;
+    private SessionManagement sessionManagement;
     public ProfileFragment() {
     }
 
@@ -35,17 +37,47 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        name=view.findViewById(R.id.name);
-        signOut=view.findViewById(R.id.signOut);
-        SharedPreferences sp= getContext().getSharedPreferences("Response", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edt=sp.edit();
-        name.setText(sp.getString("name","N/A"));
+        initViews(view);
 
+
+        setUpData();
         signOut.setOnClickListener(v->{
-            edt.clear();
-            edt.commit();
+            sessionManagement.logout();
             startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         });
+    }
+
+    private void setUpData() {
+
+        name.setText(sessionManagement.getUserDetail("name"));
+        userEmail.setText(sessionManagement.getUserDetail("email"));
+        mobile.setText(sessionManagement.getUserDetail("mobile"));
+        companyId.setText(sessionManagement.getUserDetail("company_id"));
+        nameF.setText(String.valueOf(sessionManagement.getUserDetail("name").charAt(0)));
+        mobileF.setText(String.valueOf(sessionManagement.getUserDetail("mobile").charAt(0)));
+        companyIdF.setText(String.valueOf(sessionManagement.getUserDetail("company_id").charAt(0)));
+
+        Glide.with(this)
+                .load(sessionManagement.getUserDetail("profile"))
+                .into(userImg);
+    }
+
+    private void initViews(View view) {
+        sessionManagement = new SessionManagement(getContext());
+        name=view.findViewById(R.id.name);
+        signOut=view.findViewById(R.id.signOut);
+        userEmail=view.findViewById(R.id.userEmail);
+        userImg=view.findViewById(R.id.userImg);
+        mobile=view.findViewById(R.id.mobile);
+        designation=view.findViewById(R.id.designation);
+        department=view.findViewById(R.id.department);
+        companyId=view.findViewById(R.id.companyID);
+        nameF=view.findViewById(R.id.nameF);
+        mobileF=view.findViewById(R.id.mobileF);
+        designationF=view.findViewById(R.id.designationF);
+        departmentF=view.findViewById(R.id.departmentF);
+        companyIdF=view.findViewById(R.id.companyIdF);
+
     }
 }

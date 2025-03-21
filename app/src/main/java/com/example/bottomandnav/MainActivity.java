@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.bottomandnav.fragments.HomeFragment;
 import com.example.bottomandnav.fragments.menus.MenuFragment;
-import com.example.bottomandnav.fragments.NotificationFragment;
+import com.example.bottomandnav.fragments.notifications.NotificationFragment;
 import com.example.bottomandnav.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 if (id==R.id.notificationBtn){
-                    changeFragemnt(new NotificationFragment());
+//                    changeFragemnt(new NotificationFragment());
+                    NotificationFragment notificationFragment=new NotificationFragment();
+                    notificationFragment.show(getSupportFragmentManager(),notificationFragment.getTag());
                     return true;
                 }
                 if (id==R.id.profileBtn){
