@@ -22,7 +22,7 @@ import com.example.bottomandnav.R;
 import com.example.bottomandnav.SessionManagement;
 
 public class ProfileFragment extends Fragment {
-    TextView name,userEmail,mobile,designation,department,companyId,nameF,mobileF,designationF,departmentF,companyIdF;
+    TextView name,userEmail,mobile,designation,department,companyId,nameF,mobileF,designationF,departmentF,companyIdF,requestHost,requestHostF,userType,userTypeF;
     ImageView signOut,userImg;
     private SessionManagement sessionManagement;
     public ProfileFragment() {
@@ -54,12 +54,15 @@ public class ProfileFragment extends Fragment {
         userEmail.setText(sessionManagement.getUserDetail("email"));
         mobile.setText(sessionManagement.getUserDetail("mobile"));
         companyId.setText(sessionManagement.getUserDetail("company_id"));
-        nameF.setText(String.valueOf(sessionManagement.getUserDetail("name").charAt(0)));
-        mobileF.setText(String.valueOf(sessionManagement.getUserDetail("mobile").charAt(0)));
-        companyIdF.setText(String.valueOf(sessionManagement.getUserDetail("company_id").charAt(0)));
-
+        nameF.setText(String.valueOf(sessionManagement.getUserDetail("name").toUpperCase().charAt(0)));
+        mobileF.setText(String.valueOf(sessionManagement.getUserDetail("mobile").toUpperCase().charAt(0)));
+        companyIdF.setText(String.valueOf(sessionManagement.getUserDetail("company_id").toUpperCase().charAt(0)));
+        requestHost.setText(sessionManagement.getUserDetail("request_host_name"));
+        requestHostF.setText(String.valueOf(sessionManagement.getUserDetail("request_host_name").toUpperCase().charAt(0)));
+        userType.setText(sessionManagement.getUserDetail("user_type"));
+        userTypeF.setText(String.valueOf(sessionManagement.getUserDetail("user_type").toUpperCase().charAt(0)));
         Glide.with(this)
-                .load(sessionManagement.getUserDetail("profile"))
+                .load("https://dev4.pristinefulfil.com/assets/images/vendor_panel_img/mylogo.png")
                 .into(userImg);
     }
 
@@ -78,6 +81,9 @@ public class ProfileFragment extends Fragment {
         designationF=view.findViewById(R.id.designationF);
         departmentF=view.findViewById(R.id.departmentF);
         companyIdF=view.findViewById(R.id.companyIdF);
-
+        requestHost=view.findViewById(R.id.requestHost);
+        requestHostF=view.findViewById(R.id.requestHostF);
+        userType=view.findViewById(R.id.userType);
+        userTypeF=view.findViewById(R.id.userTypeF);
     }
 }

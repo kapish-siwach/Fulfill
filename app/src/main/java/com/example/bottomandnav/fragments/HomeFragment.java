@@ -9,11 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.bottomandnav.R;
+import com.example.bottomandnav.SessionManagement;
 
 public class HomeFragment extends Fragment {
-
+    TextView userTitle;
+    ImageView titleImage;
+    SessionManagement session;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -21,13 +27,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initViews(view);
+        userTitle.setText(session.getUserDetail("name"));
+        Glide.with(getContext()).load("https://dev4.pristinefulfil.com/assets/images/vendor_panel_img/mylogo.png")
+                .into(titleImage);
+    }
 
+    private void initViews(View view) {
+        userTitle=view.findViewById(R.id.userTitle);
+        titleImage=view.findViewById(R.id.titleImage);
+        session=new SessionManagement(getContext());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.bottomandnav.fragments.notifications;
+package com.example.bottomandnav.fragments.menus;
 
 import android.content.Context;
 import android.view.LayoutInflater;

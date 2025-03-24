@@ -1,13 +1,10 @@
 <resources>
     <string name="app_name">Bottom And Nav</string>
-    <string name="name">Name = </string>
+    <string name="name">Name</string>
     <string name="user_name">User Name</string>
-    <string name="email">Email = </string>
     <string name="user_email">User Email</string>
-    <string name="user_id">"User ID = "</string>
-    <string name="user_id_">user_id</string>
-    <string name="user_type">User Type = </string>
-    <string name="user_type_">User Type</string>
+    <string name="user_id">"User ID"</string>
+    <string name="user_type">User Type</string>
     <string name="get_data">Get Data</string>
     <string name="log_in">Log in</string>
     <string name="email_input">Email</string>
@@ -17,15 +14,27 @@
     <string name="logo">Logo</string>
     <string name="error">Error</string>
     <string name="invalid_credentials">Invalid Credentials!!</string>
-    <string name="company_id">"Company Id = "</string>
-    <string name="comapny_id_">Comapny Id</string>
-    <string name="role_name">"Role Name = "</string>
-    <string name="role_name_">Role name</string>
+    <string name="company_id">"Company Id"</string>
+    <string name="role_name">Role name</string>
     <string name="welcome">WELCOME</string>
     <string name="log_out">Log out</string>
     <string name="remember_me">Remember me</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="mobile">Mobile</string>
+    <string name="designation">Designation</string>
+    <string name="department">Department</string>
+    <string name="request_host">Request Host</string>
+    <string name="user_image">User Image</string>
+    <string name="profile">Profile</string>
+    <string name="sign_out">Sign out</string>
+    <string name="notifications">Notifications</string>
+    <string name="welcome_home">Welcome Home</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alert">Alert</string>
+    <string name="no_record_found">No Record Found</string>
+    <string name="menu">Menu</string>
+    <string name="notification">Notification</string>
+    <string name="home">Home</string>
 </resources>

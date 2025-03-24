@@ -24,6 +24,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_menu"
+        android:background="#0DD4D1D1"
+        app:itemRippleColor="@color/dark_green"
+        app:itemTextColor="@color/dark_green"
+        app:itemIconTint="@color/dark_green"
+        app:activeIndicatorLabelPadding="5dp"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

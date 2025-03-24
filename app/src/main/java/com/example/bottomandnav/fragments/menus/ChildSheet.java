@@ -1,6 +1,4 @@
-package com.example.bottomandnav.fragments.notifications;
-
-import static java.security.AccessController.getContext;
+package com.example.bottomandnav.fragments.menus;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -14,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.bottomandnav.R;
 import com.example.bottomandnav.ResponseModel;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.List;
 
@@ -46,7 +43,7 @@ public class ChildSheet extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.childRecycler);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 4));
 
         childMenuAdapter = new ChildMenuAdapter(getContext(), childList);
         recyclerView.setAdapter(childMenuAdapter);

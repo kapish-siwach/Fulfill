@@ -36,6 +36,7 @@ public class SessionManagement {
         editor.apply();
     }
 
+
     public void storeLoginDetails(List<ResponseModel> responseData) {
         editor.putString("email",responseData.get(0).email);
         editor.putString("role_name",responseData.get(0).role_name);
@@ -45,6 +46,8 @@ public class SessionManagement {
         editor.putString("menu",new Gson().toJson(responseData.get(0).menu));
         editor.putBoolean("isLoggedIn",true);
         editor.putString("profile",responseData.get(0).profile);
+        editor.putString("user_type",responseData.get(0).user_type);
+        editor.putString("request_host_name",responseData.get(0).request_host_name);
         editor.apply();
     }
 }
