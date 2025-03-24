@@ -28,8 +28,8 @@
 
     <ImageView
         android:id="@+id/signOut"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/baseline_logout_24"
         android:text="@string/sign_out"
         android:layout_margin="10dp"

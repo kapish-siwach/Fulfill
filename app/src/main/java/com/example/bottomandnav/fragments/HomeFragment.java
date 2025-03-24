@@ -18,7 +18,7 @@ import com.example.bottomandnav.SessionManagement;
 
 public class HomeFragment extends Fragment {
     TextView userTitle;
-    ImageView titleImage;
+    ImageView titleImage,gifArea;
     SessionManagement session;
     public HomeFragment() {
         // Required empty public constructor
@@ -37,11 +37,14 @@ public class HomeFragment extends Fragment {
         userTitle.setText(session.getUserDetail("name"));
         Glide.with(getContext()).load("https://dev4.pristinefulfil.com/assets/images/vendor_panel_img/mylogo.png")
                 .into(titleImage);
+
+        Glide.with(getContext()).load(R.drawable.zumba).into(gifArea);
     }
 
     private void initViews(View view) {
         userTitle=view.findViewById(R.id.userTitle);
         titleImage=view.findViewById(R.id.titleImage);
+        gifArea=view.findViewById(R.id.gifArea);
         session=new SessionManagement(getContext());
     }
 }
