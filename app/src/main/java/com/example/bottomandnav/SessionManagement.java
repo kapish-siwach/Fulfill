@@ -3,6 +3,7 @@ package com.example.bottomandnav;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.bottomandnav.models.ResponseModel;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class SessionManagement {
     }
 
 
+
     public boolean isLoggedIn() {
         return sharedPreferences.getBoolean("isLoggedIn", false);
     }
@@ -36,6 +38,10 @@ public class SessionManagement {
         editor.apply();
     }
 
+    public void storeData(String key,String value){
+        editor.putString(key,value);
+        editor.apply();
+    }
 
     public void storeLoginDetails(List<ResponseModel> responseData) {
         editor.putString("email",responseData.get(0).email);

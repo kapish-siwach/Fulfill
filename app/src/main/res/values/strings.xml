@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bottom And Nav</string>
+    <string name="app_name">Fulfil Clone</string>
     <string name="name">Name</string>
     <string name="user_name">User Name</string>
     <string name="user_email">User Email</string>
@@ -37,4 +37,15 @@
     <string name="menu">Menu</string>
     <string name="notification">Notification</string>
     <string name="home">Home</string>
+    <string name="rejected">Rejected</string>
+    <string name="approved">Approved</string>
+    <string name="under_approval">Under Approval</string>
+    <string name="pending">Pending</string>
+    <string name="credit_request_no">Credit Request No.:</string>
+    <string name="season_code">Season Code:</string>
+    <string name="customer_code">Customer Code:</string>
+    <string name="created_on">Created On:</string>
+    <string name="add">Add</string>
+    <string name="child_title">Child Title</string>
+    <string name="select_season">Select Season</string>
 </resources>

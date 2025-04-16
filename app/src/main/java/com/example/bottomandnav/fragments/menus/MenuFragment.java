@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bottomandnav.R;
-import com.example.bottomandnav.ResponseModel;
+import com.example.bottomandnav.models.ResponseModel;
 import com.example.bottomandnav.SessionManagement;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.gson.Gson;

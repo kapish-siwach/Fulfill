@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bottomandnav.R;
-import com.example.bottomandnav.ResponseModel;
+import com.example.bottomandnav.models.ResponseModel;
 
 import java.util.List;
 

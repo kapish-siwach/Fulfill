@@ -1,5 +1,7 @@
 package com.example.bottomandnav;
 
+import com.example.bottomandnav.models.CreditHeaderModal;
+import com.example.bottomandnav.models.ResponseModel;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -15,4 +17,8 @@ public interface ApiInterface {
     @Headers("Content-Type: application/json")
     Call<List<ResponseModel>> loginUser(@Body JsonObject request);
 
+
+    @POST("/api/CreditLimitRequest/CreditLimitHeaderGet")
+    @Headers({"Content-Type: application/json","company_id: Green Gold Seeds Pvt. Ltd."})
+    Call<List<CreditHeaderModal>> getCreditHeaders(@Body JsonObject object);
 }

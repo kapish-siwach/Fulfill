@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bottomandnav.R;
-import com.example.bottomandnav.ResponseModel;
+import com.example.bottomandnav.models.ResponseModel;
 
 import java.util.List;
 
@@ -21,15 +21,16 @@ public class ChildSheet extends Fragment {
     private RecyclerView recyclerView;
     private ChildMenuAdapter childMenuAdapter;
 
+
+    public ChildSheet() {
+        // Required empty public constructor
+    }
+
     public ChildSheet(List<ResponseModel.Child> childList) {
         this.childList = childList;
     }
     public static ChildSheet newInstance(List<ResponseModel.Child> childList) {
-        ChildSheet fragment = new ChildSheet(childList);
-        Bundle args = new Bundle();
-        args.putSerializable("child_sheet", (java.io.Serializable) childList);
-        fragment.setArguments(args);
-        return fragment;
+        return new ChildSheet(childList);
     }
 
     @Override
@@ -48,4 +49,6 @@ public class ChildSheet extends Fragment {
         childMenuAdapter = new ChildMenuAdapter(getContext(), childList);
         recyclerView.setAdapter(childMenuAdapter);
     }
+
+
 }

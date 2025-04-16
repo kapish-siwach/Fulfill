@@ -1,4 +1,4 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.models;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class ResponseModel {
     public String customer_code;
     public ArrayList<Menu> menu;
 
-    public class Menu{
+    public static class Menu{
         public String id;
         public String title;
         public String tooltip;
@@ -33,7 +33,7 @@ public class ResponseModel {
         public String icon;
         public ArrayList<Child> children;
     }
-    public class Child{
+    public static class Child{
         public String title;
         public String type;
         public String icon;
