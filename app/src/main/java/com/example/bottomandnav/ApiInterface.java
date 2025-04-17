@@ -2,6 +2,7 @@ package com.example.bottomandnav;
 
 import com.example.bottomandnav.models.CreditHeaderModal;
 import com.example.bottomandnav.models.ResponseModel;
+import com.example.bottomandnav.models.SeasonsModal;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -21,4 +22,8 @@ public interface ApiInterface {
     @POST("/api/CreditLimitRequest/CreditLimitHeaderGet")
     @Headers({"Content-Type: application/json","company_id: Green Gold Seeds Pvt. Ltd."})
     Call<List<CreditHeaderModal>> getCreditHeaders(@Body JsonObject object);
+
+    @POST("/api/Planting/SeasonMstGet")
+    @Headers({"company_id: Green Gold Seeds Pvt. Ltd.","Content-Type: application/json-patch+json"})
+    Call<List<SeasonsModal>> getSeasons(@Body JsonObject object);
 }

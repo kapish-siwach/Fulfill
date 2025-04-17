@@ -48,4 +48,5 @@
     <string name="add">Add</string>
     <string name="child_title">Child Title</string>
     <string name="select_season">Select Season</string>
+    <string name="add_credit_limit">Add Credit Limit</string>
 </resources>

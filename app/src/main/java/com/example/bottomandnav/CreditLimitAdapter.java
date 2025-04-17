@@ -31,10 +31,10 @@ private List<CreditHeaderModal> creditHeaderModals;
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         CreditHeaderModal creditItem=creditHeaderModals.get(position);
-        Log.d("BIND_DEBUG", "Item at " + position + ": " +
+     /*   Log.d("BIND_DEBUG", "Item at " + position + ": " +
                 creditItem.credit_req_no + ", " + creditItem.seasion_code + ", " +
                 creditItem.customer_code + ", " + creditItem.created_on);
-
+*/
         holder.creditRequestNo.setText(creditItem.credit_req_no);
         holder.seasonCode.setText(creditItem.seasion_code);
         holder.customerCode.setText(creditItem.customer_code);

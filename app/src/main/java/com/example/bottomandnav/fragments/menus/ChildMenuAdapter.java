@@ -65,6 +65,8 @@ public class ChildMenuAdapter extends RecyclerView.Adapter<ChildMenuAdapter.Chil
     private void startNewActivity(Class classs, String title) {
         sessionManagement.storeData("child_title",title);
         context.startActivity(new Intent(context,classs));
+//        context.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,clickedFragment)
+//                .commit();
     }
 
     private void setupChildImg(ImageView childIcon, String title) {

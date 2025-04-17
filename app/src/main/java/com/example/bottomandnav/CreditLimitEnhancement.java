@@ -64,12 +64,15 @@ public class CreditLimitEnhancement extends AppCompatActivity {
         horizontalScroll.setVisibility(View.GONE);
         recyclerView.setVisibility(View.GONE);
         addFrame.setVisibility(View.VISIBLE);
-        childTitle.setText("Add Credit Limit");
+        childTitle.setText(R.string.add_credit_limit);
+        addBtn.setVisibility(View.INVISIBLE);
 
         backBtn.setOnClickListener(v->{
             horizontalScroll.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
             addFrame.setVisibility(View.GONE);
+            addBtn.setVisibility(View.VISIBLE);
+            backBtn.setOnClickListener(vs -> onBackPressed());
             childTitle.setText(sessionManagement.getUserDetail("child_title"));
         });
         getSupportFragmentManager().beginTransaction()
