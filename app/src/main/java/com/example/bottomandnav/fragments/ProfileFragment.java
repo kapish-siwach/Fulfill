@@ -1,8 +1,6 @@
 package com.example.bottomandnav.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,12 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.bottomandnav.LoginActivity;
+import com.example.bottomandnav.activities.LoginActivity;
 import com.example.bottomandnav.R;
 import com.example.bottomandnav.SessionManagement;
 

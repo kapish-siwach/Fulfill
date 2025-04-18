@@ -1,4 +1,4 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.bottomandnav.R;
+import com.example.bottomandnav.SessionManagement;
+import com.example.bottomandnav.api.RetrofitInstance;
 import com.example.bottomandnav.models.ResponseModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

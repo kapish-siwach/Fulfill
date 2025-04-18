@@ -1,4 +1,4 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.fragments.CreditLimit;
 
 import android.os.Bundle;
 
@@ -17,8 +17,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bottomandnav.fragments.AddCreditLimit;
-import com.example.bottomandnav.models.CreditHeaderModal;
+import com.example.bottomandnav.R;
+import com.example.bottomandnav.StaticMethods;
+import com.example.bottomandnav.api.RetrofitInstance;
+import com.example.bottomandnav.SessionManagement;
+import com.example.bottomandnav.models.CreditAllDataModal;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -34,7 +37,7 @@ public class CreditLimitEnhancement extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView childTitle,pendingBtn,underApprovalBtn,approvedBtn,rejectedBtn;
     private ImageView backBtn;
-    private List<CreditHeaderModal> creditHeaderModal=new ArrayList<>();
+    private List<CreditAllDataModal> creditAllDataModal =new ArrayList<>();
     CreditLimitAdapter creditLimitAdapter;
     private ProgressBar progressBar;
     private Button addBtn;
@@ -75,9 +78,10 @@ public class CreditLimitEnhancement extends AppCompatActivity {
             backBtn.setOnClickListener(vs -> onBackPressed());
             childTitle.setText(sessionManagement.getUserDetail("child_title"));
         });
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.addFrame,new AddCreditLimit() )
-                .commit();
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.fragment_container,new AddCreditLimit() )
+//                .commit();
+        StaticMethods.loadFragmentsWithBackStack(this,new AddCreditLimit());
     }
 
     private void getApiResponse(String status) {
@@ -92,19 +96,19 @@ public class CreditLimitEnhancement extends AppCompatActivity {
             jsonBody.addProperty("seasion_code", "");
             jsonBody.addProperty("customer_code", "");
 
-            RetrofitInstance.getApiInterface().getCreditHeaders(jsonBody).enqueue(new Callback<List<CreditHeaderModal>>() {
+            RetrofitInstance.getApiInterface().getCreditHeaders(jsonBody).enqueue(new Callback<List<CreditAllDataModal>>() {
                 @Override
-                public void onResponse(Call<List<CreditHeaderModal>> call, Response<List<CreditHeaderModal>> response) {
+                public void onResponse(Call<List<CreditAllDataModal>> call, Response<List<CreditAllDataModal>> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         Log.d("API_RESPONSE", new Gson().toJson(response.body()));
-                        creditHeaderModal = response.body();
-                        Log.d("API_RESPONSE", "onResponse: " + creditHeaderModal.get(0).credit_req_no);
+                        creditAllDataModal = response.body();
+                        Log.d("API_RESPONSE", "onResponse: " + creditAllDataModal.get(0).credit_req_no);
 
 
-                        if (creditHeaderModal.get(0).condition) {
+                        if (creditAllDataModal.get(0).condition) {
                             recyclerView.setVisibility(View.VISIBLE);
                             // Update the adapter with the new data
-                            creditLimitAdapter = new CreditLimitAdapter(creditHeaderModal);
+                            creditLimitAdapter = new CreditLimitAdapter(creditAllDataModal);
                             recyclerView.setAdapter(creditLimitAdapter);
                             creditLimitAdapter.notifyDataSetChanged();
                             progressBar.setVisibility(View.GONE);
@@ -119,7 +123,7 @@ public class CreditLimitEnhancement extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<List<CreditHeaderModal>> call, Throwable t) {
+                public void onFailure(Call<List<CreditAllDataModal>> call, Throwable t) {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(getApplicationContext(), "Failed to load data: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }

@@ -1,7 +1,7 @@
 package com.example.bottomandnav.models;
 import com.google.gson.annotations.SerializedName;
 
-public class CreditHeaderModal {
+public class CreditAllDataModal {
     @SerializedName("condition")
     public boolean condition;
 

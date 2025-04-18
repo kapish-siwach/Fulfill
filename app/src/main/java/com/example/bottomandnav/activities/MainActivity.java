@@ -1,4 +1,4 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
+import com.example.bottomandnav.R;
 import com.example.bottomandnav.fragments.HomeFragment;
 import com.example.bottomandnav.fragments.notifications.NotificationFragments;
 import com.example.bottomandnav.fragments.menus.MenuFragment;

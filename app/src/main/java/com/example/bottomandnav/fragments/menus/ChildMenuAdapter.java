@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bottomandnav.R;
 import com.example.bottomandnav.models.ResponseModel;
 import com.example.bottomandnav.SessionManagement;
-import com.example.bottomandnav.CreditLimitEnhancement;
+import com.example.bottomandnav.fragments.CreditLimit.CreditLimitEnhancement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChildMenuAdapter extends RecyclerView.Adapter<ChildMenuAdapter.ChildMenuViewHolder> {
@@ -26,7 +27,7 @@ public class ChildMenuAdapter extends RecyclerView.Adapter<ChildMenuAdapter.Chil
     private SessionManagement sessionManagement;
     public ChildMenuAdapter(Context context, List<ResponseModel.Child> childList) {
         this.context = context;
-        this.childList = childList;
+        this.childList = childList != null ? childList : new ArrayList<>();
 
     }
 

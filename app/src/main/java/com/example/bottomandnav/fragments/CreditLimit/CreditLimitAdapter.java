@@ -1,6 +1,5 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.fragments.CreditLimit;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bottomandnav.models.CreditHeaderModal;
+import com.example.bottomandnav.R;
+import com.example.bottomandnav.models.CreditAllDataModal;
 
 import java.util.List;
 
 public class CreditLimitAdapter extends RecyclerView.Adapter<CreditLimitAdapter.MyViewHolder> {
-private List<CreditHeaderModal> creditHeaderModals;
+private List<CreditAllDataModal> creditAllDataModals;
 
-    public CreditLimitAdapter(List<CreditHeaderModal> creditHeaderModals) {
-        this.creditHeaderModals = creditHeaderModals;
+    public CreditLimitAdapter(List<CreditAllDataModal> creditAllDataModals) {
+        this.creditAllDataModals = creditAllDataModals;
     }
 
     @NonNull
@@ -30,11 +30,8 @@ private List<CreditHeaderModal> creditHeaderModals;
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        CreditHeaderModal creditItem=creditHeaderModals.get(position);
-     /*   Log.d("BIND_DEBUG", "Item at " + position + ": " +
-                creditItem.credit_req_no + ", " + creditItem.seasion_code + ", " +
-                creditItem.customer_code + ", " + creditItem.created_on);
-*/
+        CreditAllDataModal creditItem= creditAllDataModals.get(position);
+
         holder.creditRequestNo.setText(creditItem.credit_req_no);
         holder.seasonCode.setText(creditItem.seasion_code);
         holder.customerCode.setText(creditItem.customer_code);
@@ -49,7 +46,7 @@ private List<CreditHeaderModal> creditHeaderModals;
 
     @Override
     public int getItemCount() {
-        return creditHeaderModals.size();
+        return creditAllDataModals.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

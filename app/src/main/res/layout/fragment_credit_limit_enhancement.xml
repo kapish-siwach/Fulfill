@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:paddingTop="20dp"
     android:layout_height="match_parent"
-    tools:context=".CreditLimitEnhancement">
+    tools:context=".fragments.CreditLimit.CreditLimitEnhancement">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -40,14 +40,13 @@
             android:id="@+id/childTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/child_title"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:layout_marginStart="5dp"
-            />
+            android:layout_weight="1"
+            android:hint="@string/child_title"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 <Button
     android:id="@+id/addBtn"
     android:layout_width="wrap_content"

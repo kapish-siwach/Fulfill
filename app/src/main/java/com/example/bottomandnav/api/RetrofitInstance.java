@@ -1,4 +1,4 @@
-package com.example.bottomandnav;
+package com.example.bottomandnav.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
