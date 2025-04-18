@@ -20,9 +20,19 @@ public class CreditHeaderInsertModal {
     public String status;
     public String created_on;
     public String created_by;
-    public Object updated_on;
-    public Object updated_by;
-    public Object approved_on;
-    public Object approved_by;
-    public ArrayList<String> lines;
+    public String updated_on;
+    public String updated_by;
+    public String approved_on;
+    public String approved_by;
+    public ArrayList<Line> lines;
+    public class Line{
+        public String credit_req_no;
+        public String category_code;
+        public String line_no;
+        public String group_code;
+        public int expected_amt;
+        public String expected_collection_date;
+        public String created_on;
+        public String created_by;
+    }
 }

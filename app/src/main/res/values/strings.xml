@@ -55,4 +55,15 @@
     <string name="credit_limit_view">Credit Limit View</string>
     <string name="line_detail_s">Line Detail\'s</string>
     <string name="add_line">Add Line</string>
+    <string name="complete">Complete</string>
+    <string name="delete">Delete</string>
+    <string name="select_category">Select Category</string>
+    <string name="select_group_code">Select Group Code</string>
+    <string name="expected_amount">Expected Amount</string>
+    <string name="expected_collection_amount">Expected Collection Amount</string>
+    <string name="expected_collection_date">Expected Collection Date</string>
+    <string name="category_code">Category Code :</string>
+    <string name="group_code">Group Code :</string>
+    <string name="expected_amount_">Expected Amount :</string>
+    <string name="expected_date">Expected Date :</string>
 </resources>

@@ -56,7 +56,7 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Material Dropdown (Spinner-style) -->
         <com.google.android.material.textfield.TextInputLayout

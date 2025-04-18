@@ -18,6 +18,9 @@
             android:name=".activities.ChildContainerActivity"
             android:exported="false" />
         <activity
+            android:name=".fragments.CreditLimit.CreditLimitView"
+            android:exported="false" />
+        <activity
             android:name=".fragments.CreditLimit.CreditLimitEnhancement"
             android:exported="false" />
         <activity

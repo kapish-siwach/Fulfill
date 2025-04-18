@@ -108,9 +108,10 @@ public class CreditLimitEnhancement extends AppCompatActivity {
                         if (creditAllDataModal.get(0).condition) {
                             recyclerView.setVisibility(View.VISIBLE);
                             // Update the adapter with the new data
-                            creditLimitAdapter = new CreditLimitAdapter(creditAllDataModal);
+                            creditLimitAdapter = new CreditLimitAdapter(creditAllDataModal,CreditLimitEnhancement.this);
                             recyclerView.setAdapter(creditLimitAdapter);
                             creditLimitAdapter.notifyDataSetChanged();
+
                             progressBar.setVisibility(View.GONE);
                         } else {
                             recyclerView.setVisibility(View.GONE);

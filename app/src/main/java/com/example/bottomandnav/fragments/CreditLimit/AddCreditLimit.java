@@ -1,5 +1,6 @@
 package com.example.bottomandnav.fragments.CreditLimit;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ import com.example.bottomandnav.SessionManagement;
 import com.example.bottomandnav.models.CreditHeaderInsertModal;
 import com.example.bottomandnav.models.CustomersModel;
 import com.example.bottomandnav.models.SeasonsModal;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -96,7 +98,17 @@ public class AddCreditLimit extends Fragment /*implements AdapterView.OnItemSele
                     if (response.isSuccessful() && response.body() != null) {
                             insertHeader = response.body();
                         if (insertHeader.get(0).condition){
-                            StaticMethods.loadFragments(requireActivity(),new CreditLimitView());
+//                            StaticMethods.loadFragments(requireActivity(),new CreditLimitView());
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString("dataPass", new Gson().toJson(insertHeader));
+                            Intent intent = new Intent(getActivity(), CreditLimitView.class);
+                              intent.putExtras(bundle);
+                             startActivity(intent);
+
+
+
+
                             storeResponseIntoSession();
                         }else {
                             Toast.makeText(getContext(), insertHeader.get(0).message, Toast.LENGTH_SHORT).show();
@@ -244,10 +256,10 @@ public class AddCreditLimit extends Fragment /*implements AdapterView.OnItemSele
     }
 
     private void storeResponseIntoSession() {
-        sessionManagement.storeData("credit_req_no",insertHeader.get(0).credit_req_no);
-        sessionManagement.storeData("seasion_code",season_Code);
-        sessionManagement.storeData("customer_code",insertHeader.get(0).customer_code);
-        sessionManagement.storeData("status",insertHeader.get(0).status);
+//        sessionManagement.storeData("credit_req_no",insertHeader.get(0).credit_req_no);
+//        sessionManagement.storeData("seasion_code",season_Code);
+//        sessionManagement.storeData("customer_code",insertHeader.get(0).customer_code);
+//        sessionManagement.storeData("status",insertHeader.get(0).status);
     }
 
 
